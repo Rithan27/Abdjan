@@ -53,29 +53,74 @@
         }
 
         .letter-container {
-            background-color: rgba(0, 0, 0, 0);
-            padding: 50px;
-            height: auto;
-            width: auto;
-            box-shadow: 0px 8px 24px rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
-            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             color: white;
             z-index: 2;
-            position: relative;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 1s ease-in-out;
         }
+
+        .move-up {
+            transform: translate(-50%, -150%);
+            transition: transform 1s ease-in-out;
+        }
+
+        .move-down {
+            transform: translate(-50%, 200%);
+            opacity: 0;
+            transition: transform 1s ease-in-out;
+        }
+
+
+        .letter-box {
+            background-color: rgba(0, 0, 0, 0.075);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.103), 0 0 25px rgba(230, 230, 230, 0.13);
+            text-align: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+        }
+
+        .visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
 
         .greeting-letter {
             font-family: 'Great Vibes', cursive;
-            font-size: 25px;
+            font-size: 20px;
             line-height: 1.8;
-            display: none;
+            color: white;
         }
 
-        .greeting-letter.visible {
+        .visible {
             display: block;
             opacity: 1;
         }
+
+        .letter-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+        }
+
+        .hidden {
+            transform: translate(-50%, -150%);
+            opacity: 0;
+        }
+
 
         button {
             background-color: #ff0095;
@@ -83,13 +128,32 @@
             border: none;
             padding: 10px 20px;
             margin-top: 20px;
+            position: absolute;
+            top: 15%;
+            left: 43%;
             border-radius: 8px;
             cursor: pointer;
             font-family: 'Dancing Script', cursive;
             font-size: 16px;
-            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            transition: background-color 0.05s ease, transform 0.05s ease, box-shadow 0.05s ease;
             box-shadow: 0 0 15px rgba(255, 0, 150, 0.8), 0 0 20px rgba(255, 0, 150, 0.5);
         }
+
+        @keyframes fallAndDisappear {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(100px);
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(200px);
+                opacity: 0;
+            }
+        }
+       
 
         button:hover {
             background-color: #eb58ebef;
@@ -106,35 +170,49 @@
         <div class="color-patch" style="top: 50%; left: 70%; background: radial-gradient(circle, rgba(255, 255, 0, 0.8), transparent);"></div>
         <div class="color-patch" style="top: 40%; left: 70%; background: radial-gradient(circle, rgba(213, 81, 240, 0.877), transparent);"></div>
         <div class="color-patch" style="top: 80%; left: 70%; background: radial-gradient(circle, rgba(245, 59, 59, 0.973), transparent);"></div>
-
     </div>
 
     <div class="letter-container" id="letterContainer">
         <h2>hey abdulla !</h2>
-        <p class="greeting-letter" id="greetingLetter">
-            Hey, it's me, janani, once again wishing you the happiest birthday! There are so many things I’ve never had the right occasion to tell you, and even now, I won’t say it all—but I can’t keep everything in anymore. You’re more than just a friend to me. You're the most precious person in my life, right after my mom and dad.
+        <div class="letter-box" id="letterBox">
+            <p class="greeting-letter"> 
+                Happy Birthday, my love.
 
-I honestly don’t know how to express what you truly mean to me. You’ve been there through every one of my lows, and I still remember when you said I should be proud to be your boy best friend. You were right—there’s no better title I could ask for, though I sometimes wish for more.
+I should be there with you, holding your hand, looking into your eyes, whispering how much I love you. But instead, here I am, pouring my heart into words, hoping they reach you the way my touch would.
 
-There isn’t a single day that goes by without you crossing my mind. You appear in my thoughts at the most random moments, and even you became a part of my daily routine. You understand me like no one else, except maybe my mom. It’s impossible to just say "thank you" for everything you’ve been to me. I don’t know what the future holds, but being around you makes me feel like I’ve found something worth holding on to.
+Do you remember our school days? When love was effortless—just stolen glances and your voice always within reach. But now, every day without you feels like a countdown to the moment I get to see you again. I miss you in ways words will never be enough to explain. Your warmth, your voice without the crackle of a call, your presence that made everything feel right.
 
-You’ve taught me so much without ever flaunting it. You’ve been my calm, my peace—and I need that peace to stay with me. Someone who brings that kind of serenity into my life deserves everything, including asking questions, challenging me, and teaching me how to be better. You’re my reason to believe that there’s something divine in this world, because having you by my side feels like a blessing. Even if I’ve been unlucky in many things, being with you makes me feel like I’ve won in the most important way.
+I know you're there, chasing dreams, building our future, and I love you even more for it. But, my love, come home soon. Some love stories aren’t meant to be lived apart. And ours is one of them.
 
-So, be strong, okay? No matter what, I’ll be here, by your side. You shine so bright, like a star, and I’ll always be around to watch you shine. Cheers to 20, big girl. I'm hardly waiting to see what the future holds for us.
+I love you, Abdulla. Today and always.
 
-perpetually I’ll be your side no matter what.so, Bye bye !!
-        </p>
+Forever yours,
+Janani
+            </p>
+        </div>
         <button id="readButton" onclick="revealLetter()">In ?</button>
     </div>
 
     <script>
         function revealLetter() {
-            const letter = document.getElementById("greetingLetter");
+            const letterBox = document.getElementById("letterBox");
             const button = document.getElementById("readButton");
-            letter.classList.add('visible');
-            letter.style.opacity = 1;
-            button.style.display = 'none';
+
+            letterBox.classList.add('visible');
+            button.classList.add('move-up-button'); 
+            setTimeout(() => {
+                button.style.opacity = "0"; 
+            }, 500);
+            setTimeout(() => {
+                button.style.display = 'none'; 
+            }, 1000);
         }
+        </script>
+
+    <script>
+    document.getElementById("readButton").addEventListener("click", function() {
+        this.style.animation = "fallAndDisappear 0.8s ease-out forwards";
+    });
     </script>
 </body>
 </html>
